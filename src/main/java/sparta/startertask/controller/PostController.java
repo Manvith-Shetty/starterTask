@@ -86,3 +86,11 @@ public class PostController {
 // end to end TEST - 사용자 end 부터 DB or 실제 결제 되는 서버 end 까지
 // 변경 가능성을 항상 신경써야한다 -
 // 나의 얕은 기억력을 대신해줄 중요한역할 .
+
+// id 1 ~ 100 rptlrmf =>삭제
+// 테스트의 목적 - 뭘 테스트하고싶은가 - 목적에 맞는 코드
+// MockMvc - API 규격에 대한 테스트 - Spring Bean을 다 안띄운다. -Mocking - 가짜 만드는 Mvc 컨트롤러 Proxy
+// url, http status, http method
+// DATA JPA Test - Annotation -
+// HTTP METHOD, API  // 통합테스트-컴포넌트 테스트 - Spring Bean 다 띄우는.. - 시간이 매우 오래걸린다. - 필요한 요소
+// 단위테스트 - 순수 자바 클래스 테스트 - Domain logic test - 객체

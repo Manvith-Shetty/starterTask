@@ -2,6 +2,7 @@ package sparta.startertask.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sparta.startertask.dto.PostReq;
 import sparta.startertask.dto.PostRes;
 import sparta.startertask.entity.Post;
@@ -34,10 +35,13 @@ public class PostService {
         return findPost.toPostRes();
     }
 
+    @Transactional
     public PostRes editPost(Long postId, PostReq editPostReq) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new IllegalArgumentException("없음"));
         if(post.validatePassword(editPostReq.getPassword())) {
-            return post.editPost(editPostReq).toPostRes();
+            post.editPost(editPostReq);
+            postRepository.flush();
+            return post.toPostRes();
         } else {
             throw new IllegalArgumentException("비밀번호 불일치");
         }
