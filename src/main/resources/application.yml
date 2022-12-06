@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/dbs/starterTask
+    driver-class-name: org.h2.Driver
+    username: sa
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
